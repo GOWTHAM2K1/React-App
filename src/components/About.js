@@ -12,7 +12,7 @@ export default function About() {
         if(stylemode.color==='black'){
             setstylemode({
                 color : 'white',
-                backgroundColor: 'black',
+                backgroundColor: '#0f0922',
                 border : '1px solid white'
             })
             setMode('Switch to Light Mode')

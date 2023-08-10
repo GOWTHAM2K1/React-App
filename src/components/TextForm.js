@@ -54,7 +54,7 @@ export default function TextForm(props) {
             <div className="container">
                 <h1 className='my-3 px-1 text-2xl'>{props.heading}</h1>
                 <div className="mb-3">
-                    <textarea className="form-control"  id="exampleFormControlTextarea1" rows="3" value={text} onChange={handleonchange}></textarea>
+                    <textarea className="form-control" style={{backgroundColor:props.theme==='dark'?'#8e8f9f':'white'}} id="exampleFormControlTextarea1" rows="3" value={text} onChange={handleonchange}></textarea>
                 </div>
                 <button className="btn btn-primary" onClick={upConverter}>Conveert to Upper Case</button>
                 <button className="btn btn-primary mx-1" onClick={lowConverter}>Conveert to lower Case</button>
@@ -72,7 +72,7 @@ export default function TextForm(props) {
 
             <div className="container my-3">
                 <h1 className="text-2xl my-2">Preview</h1>
-                <p>{text}</p>
+                <p>{text.length>0?text:'what you type will be displayed here'}</p>
             </div>
         </>
 
