@@ -8,8 +8,7 @@ import React, { useState } from 'react'
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
 } from "react-router-dom";
 
 
@@ -30,9 +29,19 @@ export default function App() {
         
     }
 
+    const removeBgColor = ()=>{
+        document.body.classList.remove('bg-success')
+        document.body.classList.remove('bg-danger')
+        document.body.classList.remove('bg-warning')
+        document.body.classList.remove('bg-light')
+        document.body.classList.remove('bg-dark')
+        
+    }
+
     const toggleMode = () => {
         if (mode === 'dark') {
             setMode('light')
+            removeBgColor();
             document.body.style.backgroundColor = 'white';
             document.body.style.color = 'black';
             document.title = 'Text Utils-light mode'
@@ -40,6 +49,7 @@ export default function App() {
         }
         else {
             setMode('dark')
+            removeBgColor();
             document.body.style.backgroundColor = '#0f0922';
             document.body.style.color = 'white';
             document.title = 'Text Utils-dark mode'
@@ -54,12 +64,14 @@ export default function App() {
 
         }
     }
+    const colorChange = 'primary';
+    
 
     return (
         <>
             
             <Router>
-            <Navbar title="Navbar" theme={mode} toggleMode={toggleMode} /> 
+            <Navbar title="Navbar" theme={mode} toggleMode={toggleMode} colorChange = {colorChange}/> 
             <Alert alert={alert}/>   
                     <Switch>
                         <Route path="/about">
